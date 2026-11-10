@@ -3,15 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node scripts/generate-registry.mjs --watch -- next dev",
     "build": "next build",
+    "prebuild": "node scripts/generate-registry.mjs",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "registry": "node scripts/generate-registry.mjs",
+    "new:tool": "node scripts/new-tool.mjs",
+    "postinstall": "node scripts/generate-registry.mjs"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.1.17",
     "@vercel/analytics": "^1.6.1",
     "@vercel/speed-insights": "^1.3.1",
-    "@tailwindcss/postcss": "^4.1.17",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "cn": "^0.5.2",
     "lucide-react": "^0.555.0",
     "next": "^16.0.7",
     "radix-ui": "^1.4.3",
@@ -24,6 +31,8 @@
   },
   "devDependencies": {
     "@types/node": "26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "typescript": "7.0.2"
   }
 }

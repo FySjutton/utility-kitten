@@ -1,6 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 
-export type ToolStatus = "released" | "beta" | "alpha";
+export type ToolStatus = "released" | "beta" | "alpha" | "external";
 
 export interface ToolMeta {
     slug: string;

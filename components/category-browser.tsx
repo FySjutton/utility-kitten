@@ -4,8 +4,8 @@ import {useState} from "react";
 import {getAllIn, getCategory, getChildren, isEmpty, search, type Listing as ListingData} from "@/lib/tools/registry";
 import { Section } from "@/components/node-grid";
 import { SearchInput } from "@/components/search-input";
-import { Button } from "@/components/ui/button";
 import {Tabs, TabsList, TabsTrigger} from "@/components/ui/tabs";
+import {Separator} from "@/components/ui/separator";
 
 export function CategoryBrowser({ scope }: { scope: string }) {
     const [view, setView] = useState("this");
@@ -33,7 +33,7 @@ export function CategoryBrowser({ scope }: { scope: string }) {
     }
 
     return (
-        <div>
+        <div className="w-full">
             <div className="flex">
                 <Tabs value={view} onValueChange={v => setView(v)} className="m-4 ml-0">
                     <TabsList className="flex-wrap h-auto">
@@ -50,6 +50,7 @@ export function CategoryBrowser({ scope }: { scope: string }) {
                     scopeName={scopeName}
                 />
             </div>
+            <Separator className="mb-4" />
             {content}
         </div>
     );
@@ -59,7 +60,7 @@ function Listing({ listing }: { listing: ListingData }) {
     return (
         <>
             <Section title="Categories" items={listing.categories} />
-            <Section title="Tools" items={listing.tools} />
+            <Section title="Tools" items={[...listing.tools, ...listing.external]} />
             <Section title="External" items={listing.external} />
         </>
     );

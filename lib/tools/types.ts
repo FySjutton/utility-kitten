@@ -3,21 +3,32 @@ import type { LucideIcon } from "lucide-react";
 export type ToolStatus = "released" | "beta" | "alpha";
 
 export interface ToolMeta {
+    slug: string;
     name: string;
     description: string;
     icon: LucideIcon;
     status: ToolStatus;
     keywords?: string[];
-    order?: number;
     unlisted?: boolean;
 }
 
+export interface ExternalLink {
+    name: string;
+    url: string;
+    description?: string;
+    icon?: LucideIcon;
+    keywords?: string[];
+}
+
 export interface CategoryMeta {
+    slug: string;
     name: string;
     description: string;
     icon: LucideIcon;
     keywords?: string[];
-    order?: number;
+    categories?: CategoryMeta[];
+    tools?: ToolMeta[];
+    external?: ExternalLink[];
 }
 
 export function defineTool(meta: ToolMeta): ToolMeta {

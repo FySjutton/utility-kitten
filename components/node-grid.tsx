@@ -11,6 +11,7 @@ export function NodeGrid({ items }: { items: RegistryNode[] }) {
                     <li key={item.path}>
                         <Link
                             href={item.href}
+                            {...(item.kind === "external" && { target: "_blank", rel: "noopener noreferrer" })}
                             className="flex h-full flex-col gap-2 rounded-lg border bg-card p-4 transition-colors hover:bg-accent"
                         >
                             <div className="flex items-center gap-2">

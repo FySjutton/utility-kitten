@@ -3,14 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "node scripts/generate-registry.mjs --watch -- next dev",
+    "dev": "next dev",
     "build": "next build",
-    "prebuild": "node scripts/generate-registry.mjs",
     "start": "next start",
     "lint": "eslint",
-    "registry": "node scripts/generate-registry.mjs",
-    "new:tool": "node scripts/new-tool.mjs",
-    "postinstall": "node scripts/generate-registry.mjs"
+    "new:tool": "node scripts/new-tool.mjs"
   },
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.17",
